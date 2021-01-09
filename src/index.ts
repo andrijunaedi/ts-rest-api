@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import bodyParser from 'body-parser';
+import morgan from 'morgan';
 class App {
   public app: Application;
 
@@ -11,6 +12,7 @@ class App {
 
   protected plugins(): void {
     this.app.use(bodyParser.json());
+    this.app.use(morgan('dev'));
   }
 
   protected routes(): void {
