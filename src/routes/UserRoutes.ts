@@ -1,11 +1,13 @@
 import BaseRoute from './BaseRoute';
 
+//* Middleware
+import { auth } from '../middlewares/AuthMiddleware';
+
 //* Controllers
 import UserController from '../controllers/UserController';
-
 class UserRoutes extends BaseRoute {
   public routes(): void {
-    this.router.get('/', UserController.index);
+    this.router.get('/', auth, UserController.index);
     this.router.post('/', UserController.create);
     this.router.get('/:id', UserController.show);
     this.router.put('/:id', UserController.update);
