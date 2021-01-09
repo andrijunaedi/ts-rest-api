@@ -30,7 +30,7 @@ class App {
       res.send('This route used TS');
     });
 
-    this.app.use('/users', UserRoutes);
+    this.app.use('/api/v1/users', UserRoutes);
   }
 }
 
