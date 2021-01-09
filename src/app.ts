@@ -6,7 +6,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 
 //* Routes
-import UsersRoutes from './routes/UsersRoutes';
+import UserRoutes from './routes/UserRoutes';
 
 class App {
   public app: Application;
@@ -30,7 +30,7 @@ class App {
       res.send('This route used TS');
     });
 
-    this.app.use('/users', UsersRoutes);
+    this.app.use('/users', UserRoutes);
   }
 }
 
