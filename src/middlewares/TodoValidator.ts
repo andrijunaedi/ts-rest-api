@@ -1,9 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import { check, validationResult } from 'express-validator';
 
-const validate = [
-  check('username').isString(),
-  check('password').isLength({ min: 6 }).isString(),
+const todoValidate = [
+  check('description').isString(),
   (req: Request, res: Response, next: NextFunction) => {
     const errors = validationResult(req);
 
@@ -15,4 +14,4 @@ const validate = [
   },
 ];
 
-export default validate;
+export default todoValidate;
