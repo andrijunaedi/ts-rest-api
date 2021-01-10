@@ -31,6 +31,10 @@ class AuthController {
     }
     return res.status(401).send('Authentication failed');
   };
+
+  profile = async (req: Request, res: Response): Promise<Response> => {
+    return res.send(req.app.locals.credential);
+  };
 }
 
 export default new AuthController();
