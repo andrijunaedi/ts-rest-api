@@ -11,7 +11,8 @@
     "dev": "nodemon",
     "start": "node ./build/index.js",
     "prettier": "prettier --config .prettierrc.json --write src/**/*.ts",
-    "test": "jest"
+    "test": "jest",
+    "migrate": "yarn run sequelize-cli db:migrate"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
