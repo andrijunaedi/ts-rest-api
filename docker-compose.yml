@@ -14,7 +14,7 @@ services:
       - ts_network
   ts-rest:
     container_name: ts-rest
-    image: andrijuneadi/tsrestapi:1.0
+    image: andrijunaedi/tsrestapi:${TAG}
     ports:
       - ${PORT}:${PORT}
     depends_on:
