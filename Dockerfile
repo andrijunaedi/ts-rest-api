@@ -1,4 +1,4 @@
-FROM node:14.15
+FROM node:lts-alpine3.12
 
 # Create app directory
 RUN mkdir -p /usr/src/app
@@ -13,7 +13,6 @@ COPY . /usr/src/app
 
 # Building app
 ENV NODE_ENV=production
-ENV PORT=3000
 RUN yarn run build
 EXPOSE 3000
 
