@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  postgres_ts:
+    container_name: postgres_ts
+    image: postgres:9.6
+    env_file:
+      - ./docker/database.env
+    ports:
+      - ${DB_PORT}:5432
+    volumes:
+      - ${DB_VOLUMES}:/var/lib/postgresql/data
+    networks:
+      - ts_network
+  ts-rest:
+    container_name: ts-rest
+    image: andrijuneadi/tsrestapi:1.0
+    ports:
+      - ${PORT}:${PORT}
+    depends_on:
+      - postgres_ts
+    env_file:
+      - .env
+    environment:
+      - DB_HOST=postgres_ts
+    networks:
+      - ts_network
+
+networks:
+  ts_network:
+    name: ts_network
